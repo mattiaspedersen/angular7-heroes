@@ -24,7 +24,7 @@ steps:
  # copy output to build artifacts
 
 - task: CopyFiles@2
-  displayName: Copy Files to: $(Build.ArtifactStagingDirectory)/app
+  displayName: 'copy files'
   inputs:
     SourceFolder: 'wwwroot' # edit this to your needs
     TargetFolder: '$(Build.ArtifactStagingDirectory)/app'
