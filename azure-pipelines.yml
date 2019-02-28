@@ -21,12 +21,19 @@ steps:
     ng build --prod
   displayName: 'npm install and build'
   
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
-    includeRootFolder: false
+ # copy output to build artifacts
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    artifactName: 'angular'
-    targetPath: 'dist/angular7'
+  - task: CopyFiles@2
+    displayName: Copy Files to: $(Build.ArtifactStagingDirectory)/app
+    inputs:
+      SourceFolder: 'wwwroot' # edit this to your needs
+      TargetFolder: '$(Build.ArtifactStagingDirectory)/app'
+
+# publish build artifacts
+
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish artifacts"
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/app'
+      ArtifactName: app
+      publishLocation: Container
