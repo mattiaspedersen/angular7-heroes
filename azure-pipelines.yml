@@ -27,3 +27,6 @@ steps:
     includeRootFolder: false
 
 - task: PublishBuildArtifacts@1
+  inputs:
+    artifactName: 'angular'
+    targetPath: 'dist/angular7'
