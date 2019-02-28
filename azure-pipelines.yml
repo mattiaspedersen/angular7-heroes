@@ -23,17 +23,17 @@ steps:
   
  # copy output to build artifacts
 
-  - task: CopyFiles@2
-    displayName: Copy Files to: $(Build.ArtifactStagingDirectory)/app
-    inputs:
-      SourceFolder: 'wwwroot' # edit this to your needs
-      TargetFolder: '$(Build.ArtifactStagingDirectory)/app'
+- task: CopyFiles@2
+  displayName: Copy Files to: $(Build.ArtifactStagingDirectory)/app
+  inputs:
+    SourceFolder: 'wwwroot' # edit this to your needs
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/app'
 
 # publish build artifacts
 
-  - task: PublishBuildArtifacts@1
-    displayName: "Publish artifacts"
-    inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)/app'
-      ArtifactName: app
-      publishLocation: Container
+- task: PublishBuildArtifacts@1
+  displayName: "Publish artifacts"
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/app'
+    ArtifactName: app
+    publishLocation: Container
