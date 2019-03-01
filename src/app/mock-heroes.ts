@@ -5,4 +5,5 @@ export const HEROES: Hero[] = [
     {id: 11, name: 'Gruul'},
     {id: 12, name: 'Illidan Stormrage'},
     {id: 13, name: 'King Rastakhan'},
+    {id: 14, name: 'test'},
 ];
